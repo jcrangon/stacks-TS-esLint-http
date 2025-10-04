@@ -1,0 +1,46 @@
+{
+  "name": "stacks-ts-eslint-http",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "rimraf dist && tsc -p tsconfig.json --noEmit false && tsc-alias -p tsconfig.json && cpy \"public/**/*\" dist --parents",
+    "watch": "tsc -w -p tsconfig.json --noEmit false",
+    "serve": "http-server dist -p 8080 --gzip --brotli -c-1",
+    "copy:static:watch": "cpy \"public/**/*\" dist --parents --watch",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "dev": "concurrently -r \"npm:watch\" \"npm:serve\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcrangon/stacks-TS-esLint-http.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcrangon/stacks-TS-esLint-http/issues"
+  },
+  "homepage": "https://github.com/jcrangon/stacks-TS-esLint-http#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "@types/node": "^24.6.2",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "concurrently": "^9.2.1",
+    "cpy-cli": "^6.0.0",
+    "eslint": "^9.37.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "globals": "^16.4.0",
+    "http-server": "^14.1.1",
+    "jiti": "^2.6.1",
+    "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.45.0"
+  }
+}
